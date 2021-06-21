@@ -30,16 +30,17 @@
         <div class="login_wrapper">
             <div class="animate form login_form">
                 <section class="login_content">
-                    <form>
+                    <form id="flogin">
                         <h1>Login Form</h1>
                         <div>
-                            <input type="text" class="form-control" placeholder="Username" required="" />
+                            <input type="hidden" name="grant_type" value="password">
+                            <input type="text" class="form-control" placeholder="Username" name="userName" required="" />
                         </div>
                         <div>
-                            <input type="password" class="form-control" placeholder="Password" required="" />
+                            <input type="password" class="form-control" placeholder="Password" name="password" required="" />
                         </div>
                         <div>
-                            <a class="btn btn-default submit" href="../../index.html">Log in</a>
+                            <a class="btn btn-default submit" href="#" id="bspinr">Log in</a>
                             <a class="reset_pass" href="#">Lost your password?</a>
                         </div>
 
@@ -103,3 +104,56 @@
     </div>
 </body>
 </html>
+<!-- jQuery -->
+
+<script src="../../../vendors/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        localStorage.removeItem('Fecha');
+        //$("#bspinr").hide();
+        jQuery.support.cors = true;
+        $("#bspinr").click(function (e) {
+            //$("#bspinr").show();
+
+            //$("#blogin").removeClass("btn btn-primary btn-block btn-flat");
+
+            e.preventDefault();
+
+            $.post("https://localhost:44376/Token", $("#flogin").serialize(), function (data) {
+
+                localStorage.setItem('tokenKey', JSON.stringify(data));
+
+                window.location.href = "/production/index.html";
+
+            }).fail(function (e) {
+                alert("Usuario / Contraseña Invalido");
+                //$("#bspinr").hide();
+
+            });
+
+
+        });
+
+        var data = JSON.parse(localStorage.getItem('tokenKey'));
+
+
+
+        if (data !== null) {
+
+
+            window.location.href = "/production/index.html";
+        }
+        $("#contra").click(function (e) {
+            e.preventDefault();
+            window.location = configUrl.url("Views/Account/Register.html"); //.pathname = "Views/Account/Register.html";
+        });
+        $("#regi").click(function (e) {
+            window.location = configUrl.url("Views/Account/Register.html");
+
+            e.preventDefault();
+
+        });
+
+
+    });
+</script>

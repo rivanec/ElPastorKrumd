@@ -11,6 +11,16 @@ namespace Core
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
+        protected void Application_BeginRequest()
+        {
+            if (Request.Headers.AllKeys.Contains("Origin") && Request.HttpMethod == "OPTIONS" || Request.Path == @"/Token")
+            {
+                Response.StatusCode = 200;
+                if (Request.Path == @"/Token")
+                    Response.AppendHeader("Access-Control-Allow-Origin", "*");
+            }
+
+        }
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

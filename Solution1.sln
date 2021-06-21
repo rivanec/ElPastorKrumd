@@ -23,6 +23,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "gentelella-master", "gentel
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "56846"
+		SlnRelativePath = "gentelella-master\"
 	EndProjectSection
 EndProject
 Global

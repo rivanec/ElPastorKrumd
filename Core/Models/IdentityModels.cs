@@ -21,7 +21,7 @@ namespace Core.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("PastorEnchilado", throwIfV1Schema: false)
         {
         }
         
