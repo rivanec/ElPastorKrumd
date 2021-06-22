@@ -20,31 +20,35 @@
         <div class="col-md-3 col-sm-3 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Ingrediente</h2>
+                    <h2>Unidad de Medida</h2>
                     <ul class="nav navbar-right panel_toolbox">
                     </ul>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <br>
-                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+                    <form id="frmIngrediente" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
 
                         <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 " for="first-name">
                                 Nombre
                             </label>
                             <div class="col-md-9 col-sm-9 ">
-                                <input type="text" id="first-name" required="required" class="form-control ">
+                                <input type="hidden" id="hId" value="0" name="Id" />
+
+                                <input type="text" id="txtIngrediente" required="required" class="form-control " name="Ingrediente">
                             </div>
                         </div>
+
+
                         <div class="form-group row">
                             <label class="control-label col-md-3 col-sm-3 ">U. de M.</label>
                             <div class="col-md-9 col-sm-9 ">
-                                <select class="form-control">
-                                    <option selected>Kilogramos</option>
-                                    <option>Pieza</option>
-                                    <option>Litro</option>
-
+                                <select class="form-control" id="sUnidadMedidaId" name="UnidadMedidaId">
+                                    <option selected value="1">Kilogramos</option>
+                                    <option value="2">Piezas</option>
+                                    <option value="3">Litros</option>
+                                    <option value="4">Gramos</option>
                                 </select>
                             </div>
                         </div>
@@ -55,19 +59,19 @@
                                 Cantidad
                             </label>
                             <div class="col-md-9 col-sm-9 ">
-                                <input type="text" id="cantidad" required="required" class="form-control ">
+                                <input type="text" id="txtCantidad" required="required" class="form-control " name="Cantidad">
                             </div>
                         </div>
 
                         <div class="ln_solid"></div>
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 text-right">
-                                <button class="btn btn-primary" type="button">Guardar</button>
+                                <button class="btn btn-primary" type="button" id="bGuardar">Guardar</button>
 
 
                             </div>
                             <div class="col-md-6 col-sm-6 text-right">
-                                <button class="btn btn-primary" type="button">Limpiar</button>
+                                <button class="btn btn-primary" type="reset" id="bLimpiar">Limpiar</button>
 
 
                             </div>
@@ -81,7 +85,7 @@
         <div class="col-md-9 col-sm-9  ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Ingredientes </h2>
+                    <h2>Unidades de Medida </h2>
                     <ul class="nav navbar-right panel_toolbox">
                     </ul>
                     <div class="clearfix"></div>
@@ -92,20 +96,21 @@
                             <tr>
 
                                 <th style="width:10px">
-                                    IdSucursal
-                                </th>
-                                <!--<th>
-                                    Sucursal
-                                </th>-->
-                                <th>
-                                    TotalEmpleados
+                                    Id
                                 </th>
                                 <th>
-                                    Porcentaje
+                                    Ingrediente
                                 </th>
                                 <th>
-                                    Fecha
+                                    UnidadMedidaId
                                 </th>
+                                <th>
+                                    Cantidad
+                                </th>
+                                <th>
+                                    Estatus
+                                </th>
+
 
 
                             </tr>

@@ -1,7 +1,7 @@
-﻿var tIngredientes;
+﻿var tUnidadMedida;
 $(document).ready(function () {
     jQuery.support.cors = true;
-    CargaUnidadesMedida();
+
     $("#bLimpiar").on("click", function () {
         Limpiarfrm();
     });
@@ -9,7 +9,7 @@ $(document).ready(function () {
         Guardarfrm();
     });
 
-    tIngredientes = $('#tIngredientes').DataTable({
+    tUnidadMedida = $('#tUnidadMedida').DataTable({
         //dom: 'lrtip',
         //searching: true,
         //lengthChange: false,
@@ -35,13 +35,7 @@ $(document).ready(function () {
                 }
             },
             {
-                data: "Ingrediente", title: "Ingrediente"
-            },
-            {
-                data: "UnidadMedida", title: "Unidad de Medida"
-            },
-            {
-                data: "Cantidad", title: "Cantidad"
+                data: "UnidadMedida", title: "UnidadMedida"
             },
             {
                 data: "Estatus", title: "Estatus", render: function (data, type, row) {
@@ -58,7 +52,7 @@ $(document).ready(function () {
 
         ajax: {
 
-            url: "https://localhost:44376/" + "api/WaIngredientes",
+            url: "https://localhost:44376/" + "api/WaUnidadMedida",
             crossDomain: true,
 
             dataType: "json",
@@ -67,30 +61,28 @@ $(document).ready(function () {
     });
 
 
-    $('#tIngredientes').on('click', 'tr', function () {
-        var objIngrediente = tIngredientes.row(this).data();
-        Cargafrm(objIngrediente);
+    $('#tUnidadMedida').on('click', 'tr', function () {
+        var objUnidadMedida = tUnidadMedida.row(this).data();
+        Cargafrm(objUnidadMedida);
 
     });
 })
 
 
-function Cargafrm(Ingredientes) {
-    $("#hId").val(Ingredientes.Id);
-    $("#txtIngrediente").val(Ingredientes.Ingrediente);
-    $("#sUnidadMedidaId").val(Ingredientes.UnidadMedidaId);
-    $("#txtCantidad").val(Ingredientes.Cantidad);
+function Cargafrm(UnidadMedida) {
+    $("#hId").val(UnidadMedida.Id);
+    $("#txtUnidadMedida").val(UnidadMedida.UnidadMedida);
 }
 
 function Limpiarfrm() {
-    $("#frmIngrediente")[0].reset();
+    $("#frmUnidadMedida")[0].reset();
     $("#hId").val(0);
 }
 
 function Guardarfrm() {
-    $.post("https://localhost:44376/" + "api/WaIngredientes", $("#frmIngrediente").serialize(), function (data) {
+    $.post("https://localhost:44376/" + "api/WaUnidadMedida", $("#frmUnidadMedida").serialize(), function (data) {
         Limpiarfrm();
-        tIngredientes.ajax.reload();
+        tUnidadMedida.ajax.reload();
     })
 }
 
@@ -102,9 +94,9 @@ function Eliminar(id) {
         buttons: '[No][Si]'
     }, function (ButtonPressed) {
         if (ButtonPressed === "Si") {
-            $.get("https://localhost:44376/" + "api/WaIngredientes/Eliminar?id=" + id, function (data) {
+            $.get("https://localhost:44376/" + "api/WaUnidadMedida/Eliminar?id=" + id, function (data) {
                 Limpiarfrm();
-                tIngredientes.ajax.reload();
+                tUnidadMedida.ajax.reload();
                 $.smallBox({
                     title: "Pastor Enchilado",
                     content: "Registro Eliminado",
@@ -123,14 +115,5 @@ function Eliminar(id) {
 
 
 
-}
-function CargaUnidadesMedida() {
-    $.get("https://localhost:44376/" + "api/WaUnidadMedida", function (data) {
-        var stringUnidadesMedida="";
-        for (var i = 0; i < data.length; i++) {
-            stringUnidadesMedida += "<option selected value=" + data[i].Id + ">" + data[i].UnidadMedida +"</option>";
-        }
-        $("#sUnidadMedidaId").html(stringUnidadesMedida);
-    });
 }
 

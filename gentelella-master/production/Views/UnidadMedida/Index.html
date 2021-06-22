@@ -27,14 +27,16 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+                    <form id="frmUnidadMedida" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
 
                         <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 " for="first-name">
                                 Nombre
                             </label>
                             <div class="col-md-9 col-sm-9 ">
-                                <input type="text" id="first-name" required="required" class="form-control ">
+                                <input type="hidden" id="hId" value="0" name="Id"/>
+
+                                <input type="text" id="txtUnidadMedida" required="required" class="form-control " name="UnidadMedida">
                             </div>
                         </div>
                        
@@ -45,12 +47,12 @@
                         <div class="ln_solid"></div>
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 text-right">
-                                <button class="btn btn-primary" type="button">Guardar</button>
+                                <button class="btn btn-primary" type="button" id="bGuardar">Guardar</button>
 
 
                             </div>
                             <div class="col-md-6 col-sm-6 text-right">
-                                <button class="btn btn-primary" type="button">Limpiar</button>
+                                <button class="btn btn-primary" type="reset" id="bLimpiar">Limpiar</button>
 
 
                             </div>
@@ -70,25 +72,20 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <table id="tIngredientes" class="table  table-hover  table-striped" style="width:100%;">
+                    <table id="tUnidadMedida" class="table  table-hover  table-striped" style="width:100%;">
                         <thead>
                             <tr>
 
                                 <th style="width:10px">
-                                    IdSucursal
-                                </th>
-                                <!--<th>
-                                    Sucursal
-                                </th>-->
-                                <th>
-                                    TotalEmpleados
+                                    Id
                                 </th>
                                 <th>
-                                    Porcentaje
+                                    UnidadMedida
                                 </th>
                                 <th>
-                                    Fecha
+                                    Estatus
                                 </th>
+                                
 
 
                             </tr>
@@ -128,4 +125,4 @@
 
 <!--<script src="../../../pastor/production/MVVM/Ingredientes/JsIngredientes.js"></script>-->
 
-<script src="../../../production/MVVM/Ingredientes/JsIngredientes.js"></script>
+<script src="../../../production/MVVM/UnidadMedida/JsUnidadMedida.js"></script>
