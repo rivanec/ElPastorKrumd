@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>El pastor enchilado </title>
 
     <!-- Bootstrap -->
     <link href="../../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,87 +19,91 @@
     <link href="../../../vendors/animate.css/animate.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="../../../build/css/custom.min.css" rel="stylesheet">
+    <link href="../../../build/css/login.css" rel="stylesheet">
 </head>
 
 <body class="login">
     <div>
-        <a class="hiddenanchor" id="signup"></a>
-        <a class="hiddenanchor" id="signin"></a>
+        <a class="hiddenanchor" id="Crear una cuenta"></a>
+        <a class="hiddenanchor" id="Iniciar sesión"></a>
 
-        <div class="login_wrapper">
-            <div class="animate form login_form">
+        <div class="login_wrapper" ">
+            <div class="wrap-login100">
                 <section class="login_content">
                     <form id="flogin">
-                        <h1>Login Form</h1>
-                        <div>
-                            <input type="hidden" name="grant_type" value="password">
-                            <input type="text" class="form-control" placeholder="Username" name="userName" required="" />
+                        <div class="flogin-title p-b-34 p-t-27">
+                            Bienvenido
+                        </div>
+                        <div class="wrap-input">
+                            <input type="hidden" name="grant_type" value="contraseña">
+                            <input type="email" class="form-control" placeholder="Correo electronico" name="userName" required="" />
+                        </div>
+                        <div class="wrap-input">
+                            <input type="password" class="form-control" placeholder="Contraseña" name="contraseña" required="" />
                         </div>
                         <div>
-                            <input type="password" class="form-control" placeholder="Password" name="password" required="" />
-                        </div>
-                        <div>
-                            <a class="btn btn-default submit" href="#" id="bspinr">Log in</a>
-                            <a class="reset_pass" href="#">Lost your password?</a>
+                            <button class="form-btn">
+                                Iniciar sesión
+                            </button>
+                            <!-- <a class="reset_pass" href="#">Lost your password?</a> -->
                         </div>
 
                         <div class="clearfix"></div>
 
                         <div class="separator">
-                            <p class="change_link">
-                                New to site?
-                                <a href="#signup" class="to_register"> Create Account </a>
-                            </p>
+                            <!-- <p class="change_link">
+                                 New to site?
+                                 <a href="#signup" class="to_register"> Create Account </a>
+                             </p> -->
 
                             <div class="clearfix"></div>
                             <br />
 
                             <div>
-                                <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                                <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                                <h1> El Pastor Enchilado </h1>
+                                <p>©2021 Todos los derechos reservados. El Pastor Enchilado. Sitio web administrado por KRUMD. Politicas de privacidad</p>
                             </div>
                         </div>
                     </form>
                 </section>
             </div>
 
-            <div id="register" class="animate form registration_form">
-                <section class="login_content">
-                    <form>
-                        <h1>Create Account</h1>
-                        <div>
-                            <input type="text" class="form-control" placeholder="Username" required="" />
-                        </div>
-                        <div>
-                            <input type="email" class="form-control" placeholder="Email" required="" />
-                        </div>
-                        <div>
-                            <input type="password" class="form-control" placeholder="Password" required="" />
-                        </div>
-                        <div>
-                            <a class="btn btn-default submit" href="../../index.html">Submit</a>
-                        </div>
+            <!--   <div id="register" class="animate form registration_form">
+                   <section class="login_content">
+                       <form>
+                           <h1>Crear una cuenta</h1>
+                           <div>
+                               <input type="text" class="form-control" placeholder="Nombre" required="" />
+                           </div>
+                           <div>
+                               <input type="email" class="form-control" placeholder="Correo electronico" required="" />
+                           </div>
+                           <div>
+                               <input type="password" class="form-control" placeholder="Contraseña" required="" />
+                           </div>
+                           <div>
+                               <a class="btn btn-default submit" href="../../index.html">Submit</a>
+                           </div>
 
-                        <div class="clearfix"></div>
+                           <div class="clearfix"></div>
 
-                        <div class="separator">
-                            <p class="change_link">
-                                Already a member ?
-                                <a href="#signin" class="to_register"> Log in </a>
-                            </p>
+                           <div class="separator">
+                               <p class="change_link">
+                                   Already a member ?
+                                   <a href="#signin" class="to_register"> Log in </a>
+                               </p>
 
-                            <div class="clearfix"></div>
-                            <br />
+                               <div class="clearfix"></div>
+                               <br />
 
-                            <div>
-                                <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                                <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                            </div>
-                        </div>
-                    </form>
-                </section>
-            </div>
+                               <div>
+                                   <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                                   <p>©2021 Todos los derechos reservados. El Pastor Enchilado. Sitio web administrado por KRUMD. Politicas de privacidad</p>
+                               </div>
+                           </div>
+                       </form>
+                   </section>
+               </div> -->
         </div>
     </div>
 </body>
@@ -107,53 +111,4 @@
 <!-- jQuery -->
 
 <script src="../../../vendors/jquery/dist/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        localStorage.removeItem('Fecha');
-        //$("#bspinr").hide();
-        jQuery.support.cors = true;
-        $("#bspinr").click(function (e) {
-            //$("#bspinr").show();
-
-            //$("#blogin").removeClass("btn btn-primary btn-block btn-flat");
-
-            e.preventDefault();
-
-            $.post("https://localhost:44376/Token", $("#flogin").serialize(), function (data) {
-
-                localStorage.setItem('tokenKey', JSON.stringify(data));
-
-                window.location.href = "/production/index.html";
-
-            }).fail(function (e) {
-                alert("Usuario / Contraseña Invalido");
-                //$("#bspinr").hide();
-
-            });
-
-
-        });
-
-        var data = JSON.parse(localStorage.getItem('tokenKey'));
-
-
-
-        if (data !== null) {
-
-
-            window.location.href = "/production/index.html";
-        }
-        $("#contra").click(function (e) {
-            e.preventDefault();
-            window.location = configUrl.url("Views/Account/Register.html"); //.pathname = "Views/Account/Register.html";
-        });
-        $("#regi").click(function (e) {
-            window.location = configUrl.url("Views/Account/Register.html");
-
-            e.preventDefault();
-
-        });
-
-
-    });
-</script>
+<script src="../../MVVM/Login/JsLogin.js"></script>
