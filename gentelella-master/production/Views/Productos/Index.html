@@ -1,7 +1,9 @@
-﻿<div class="">
+﻿<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Ingredientes</h3>
+            <h3>Productos</h3>
         </div>
 
         <div class="title_right">
@@ -27,47 +29,73 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-
+                    <form id="frmProducto" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+                        <div class="form-group row">
+                            <label class="col-form-label col-md-3 col-sm-3 " for="first-name">
+                                Clave
+                            </label>
+                            <div class="col-md-9 col-sm-9 ">
+                                <input type="text" id="txtId" required="required" class="form-control " name="Id">
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 " for="first-name">
                                 Nombre
                             </label>
                             <div class="col-md-9 col-sm-9 ">
-                                <input type="text" id="first-name" required="required" class="form-control ">
+                                <input type="text" id="txtProducto" required="required" class="form-control " name="Producto">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3 col-sm-3 ">U. de M.</label>
-                            <div class="col-md-9 col-sm-9 ">
-                                <select class="form-control">
-                                    <option selected>Kilogramos</option>
-                                    <option>Pieza</option>
-                                    <option>Litro</option>
 
+                        <div class="form-group row">
+                            <label class="control-label col-md-3 col-sm-3 ">Categoria</label>
+                            <div class="col-md-9 col-sm-9 ">
+                                <select class="form-control" id="sCategoriaId" name="CategoriaId">
                                 </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-md-3 col-sm-3 " for="first-name">
+                                Imagen
+                            </label>
+                            <div class="col-md-9 col-sm-9 ">
+                                <input type="file" id="txtImagenUrl" required="required" class="form-control " name="ImagenUrl">
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-md-3 col-sm-3 " for="first-name">
+                                Precio
+                            </label>
+                            <div class="col-md-9 col-sm-9 ">
+                                <input type="text" id="txtPrecio" required="required" class="form-control " name="Precio">
                             </div>
                         </div>
 
 
                         <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 " for="first-name">
-                                Cantidad
+
                             </label>
                             <div class="col-md-9 col-sm-9 ">
-                                <input type="text" id="cantidad" required="required" class="form-control ">
+                                <button class="btn btn-warning" type="button" id="bShowPopup" data-toggle="modal" data-target=".bs-example-modal-lg">Editar Ingredientes</button>
                             </div>
                         </div>
+
 
                         <div class="ln_solid"></div>
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 text-right">
-                                <button class="btn btn-primary" type="button">Guardar</button>
+                                <button class="btn btn-primary" type="button" id="bGuardar">Guardar</button>
 
 
                             </div>
                             <div class="col-md-6 col-sm-6 text-right">
-                                <button class="btn btn-primary" type="button">Limpiar</button>
+                                <button class="btn btn-primary" type="reset" id="bLimpiar">Limpiar</button>
 
 
                             </div>
@@ -87,18 +115,24 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <table id="tIngredientes" class="table  table-hover  table-striped" style="width:100%;">
+                    <table id="tProductos" class="table  table-hover  table-striped" style="width:100%;">
                         <thead>
                             <tr>
 
                                 <th style="width:10px">
-                                    IdSucursal
+                                    Id
                                 </th>
                                 <th>
-                                    TotalEmpleados
+                                    Producto
                                 </th>
                                 <th>
-                                    Porcentaje
+                                    Imagen
+                                </th>
+                                <th>
+                                    Precio
+                                </th>
+                                <th>
+                                    Estatus
                                 </th>
 
 
@@ -134,10 +168,116 @@
 
     </div>
 
+    <div class="modal fade bs-example-modal-lg"  role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
 
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Ingredientes por producto</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="col-md-12 col-sm-12  ">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Agregar/Editar </h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-3 col-sm-3 " for="first-name">
+                                        Ingrediente
+                                    </label>
+                                    <div class="col-md-9 col-sm-9 ">
+                                        <!--<input type="text" id="txtIdIngrediente" required="required" class="form-control " name="Id">-->
+                                        <select class="js-example-basic-single" name="state">
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-3 col-sm-3 " for="first-name">
+                                        Cantidad
+                                    </label>
+                                    <div class="col-md-5 col-sm-5 ">
+                                        <input type="text" id="txtId" required="required" class="form-control " name="Id">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12  ">
+                        <div class="x_panel">
+
+                            <div class="x_content">
+                                <table id="tIngredientes" class="table  table-hover  table-striped" style="width:100%;">
+                                    <thead>
+                                        <tr>
+
+                                            <th style="width:10px">
+                                                Id
+                                            </th>
+                                            <th>
+                                                Producto
+                                            </th>
+                                            <th>
+                                                Imagen
+                                            </th>
+                                            <th>
+                                                Precio
+                                            </th>
+                                            <th>
+                                                Estatus
+                                            </th>
+
+
+
+                                        </tr>
+
+                                    </thead>
+                                </table>
+                                <!--<table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>Unidad de Medida</th>
+                                            <th>Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Tortillas</td>
+                                            <td>Kilogramos</td>
+                                            <td>50</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 
 
 <!--<script src="../../../pastor/production/MVVM/Ingredientes/JsIngredientes.js"></script>-->
 
-<script src="../../../production/MVVM/Ingredientes/JsIngredientes.js"></script>
+<script src="../../../production/MVVM/Productos/JsProductos.js"></script>

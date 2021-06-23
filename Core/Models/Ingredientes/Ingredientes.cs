@@ -54,7 +54,7 @@ namespace Core.Models.Ingredientes
         public static IEnumerable<Ingredientes_model> DeleteRow(int Id)
         {
             using (
-                     var cnn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString)
+                     var cnn = new SqlConnection(ConfigurationManager.ConnectionStrings["Pastor"].ConnectionString)
                      )
             {
                 var parameters = new DynamicParameters();
@@ -62,6 +62,23 @@ namespace Core.Models.Ingredientes
                 cnn.Open();
                 var rs =
                                  cnn.Query<Ingredientes_model>("sp_CAT_INGREDIENTES_DeleteRow", parameters, commandType: CommandType.StoredProcedure).AsEnumerable();
+                return rs;
+
+            }
+        }
+
+
+        public static IEnumerable<Ingrediente_selectto> Filter(string filter)
+        {
+            using (
+                     var cnn = new SqlConnection(ConfigurationManager.ConnectionStrings["Pastor"].ConnectionString)
+                     )
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("@Filter ", filter);
+                cnn.Open();
+                var rs =
+                                 cnn.Query<Ingrediente_selectto>("sp_CAT_INGREDIENTES_Filter", parameters, commandType: CommandType.StoredProcedure).AsEnumerable();
                 return rs;
 
             }

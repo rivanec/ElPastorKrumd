@@ -218,16 +218,23 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\prueaController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\WaCategoriasController.cs" />
     <Compile Include="Controllers\WaIngredientesController.cs" />
+    <Compile Include="Controllers\WaProductosController.cs" />
     <Compile Include="Controllers\WaUnidadMedidaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Categorias\Categorias.cs" />
+    <Compile Include="Models\Categorias\Categroias_model.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Ingredientes\Ingredientes.cs" />
     <Compile Include="Models\Ingredientes\Ingredientes_model.cs" />
+    <Compile Include="Models\Ingredientes\Ingrediente_selectto.cs" />
+    <Compile Include="Models\Productos\Prodcutos.cs" />
+    <Compile Include="Models\Productos\Productos_model.cs" />
     <Compile Include="Models\UnidadMedida\UnidadMedida.cs" />
     <Compile Include="Models\UnidadMedida\UnidadMedida_model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -29,5 +29,13 @@ namespace Core.Controllers
         {
             Ingredientes.DeleteRow(id);
         }
+
+
+        [Route("api/WaIngredientes/Filter")]
+        [HttpGet]
+        public IEnumerable<Ingrediente_selectto> Filter(string filter = null)
+        {
+            return Ingredientes.Filter(filter);
+        }
     }
 }
