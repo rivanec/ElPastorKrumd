@@ -4,31 +4,31 @@ $(document).ready(function () {
     CargaCategorias();
 
 
-    $('.js-example-basic-single').select2({
-        ajax: {
-            url: 'https://localhost:44376/api/WaIngredientes/Filter',
-            dataType: 'json',
-            data: function (params) {
-                var query = {
-                    filter: params.term
-                }
+    //$('.js-example-basic-single').select2({
+    //    ajax: {
+    //        url: 'https://localhost:44376/api/WaIngredientes/Filter',
+    //        dataType: 'json',
+    //        data: function (params) {
+    //            var query = {
+    //                filter: params.term
+    //            }
 
 
-                // Query parameters will be ?search=[term]&type=public
-                return query;
-            }
-            ,
-            results: function (data, page) {
+    //            // Query parameters will be ?search=[term]&type=public
+    //            return query;
+    //        }
+    //        ,
+    //        results: function (data, page) {
 
-                return {
+    //            return {
 
-                    results: data
-                };
-            },
-            // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
-        }
-    });
-    $('.select2.select2-container.select2-container--default').css('width', '100%')
+    //                results: data
+    //            };
+    //        },
+    //        // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+    //    }
+    //});
+    //$('.select2.select2-container.select2-container--default').css('width', '100%')
 
 
     //});
