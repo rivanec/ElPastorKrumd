@@ -3,13 +3,13 @@ $(document).ready(function () {
     jQuery.support.cors = true;
     CargaUnidadesMedida();
     $("#bLimpiar").on("click", function () {
-        Limpiarfrm();
+        Limpiarfrm(); 
     });
     $("#bGuardar").on("click", function () {
         Guardarfrm();
-    });
+    }); //boton guardar y limpiar 
 
-    tIngredientes = $('#tIngredientes').DataTable({
+    tIngredientes = $('#tIngredientes').DataTable({ 
         //dom: 'lrtip',
         //searching: true,
         //lengthChange: false,
@@ -20,6 +20,7 @@ $(document).ready(function () {
         //scrollY: "450px",
         //scrollCollapse: true,     
 
+        //tabla 
         columns: [
 
 
@@ -58,7 +59,7 @@ $(document).ready(function () {
 
         ajax: {
 
-            url: "https://localhost:44376/" + "api/WaIngredientes",
+            url: "https://localhost:44376/" + "api/WaIngredientes",  //conoexión con el servidor y la api
             crossDomain: true,
 
             dataType: "json",
@@ -75,34 +76,34 @@ $(document).ready(function () {
 })
 
 
-function Cargafrm(Ingredientes) {
+function Cargafrm(Ingredientes) {  //carga de ingredientes, unidad de media y cantidad
     $("#hId").val(Ingredientes.Id);
     $("#txtIngrediente").val(Ingredientes.Ingrediente);
     $("#sUnidadMedidaId").val(Ingredientes.UnidadMedidaId);
     $("#txtCantidad").val(Ingredientes.Cantidad);
 }
 
-function Limpiarfrm() {
+function Limpiarfrm() { //limpiar
     $("#frmIngrediente")[0].reset();
     $("#hId").val(0);
 }
 
-function Guardarfrm() {
-    $.post("https://localhost:44376/" + "api/WaIngredientes", $("#frmIngrediente").serialize(), function (data) {
+function Guardarfrm() {  //guardar
+    $.post("https://localhost:44376/" + "api/WaIngredientes", $("#frmIngrediente").serialize(), function (data) { //conoexión con el servidor y la api
         Limpiarfrm();
         tIngredientes.ajax.reload();
     })
 }
 
 
-function Eliminar(id) {
+function Eliminar(id) {   //función eliminar
     $.SmartMessageBox({
         title: "Pastor Enchilado",
         content: "¿Deseas Eliminar el registro? </br> Da clic en si para confirmar",
-        buttons: '[No][Si]'
+        buttons: '[No][Si]'  //confirmación
     }, function (ButtonPressed) {
         if (ButtonPressed === "Si") {
-            $.get("https://localhost:44376/" + "api/WaIngredientes/Eliminar?id=" + id, function (data) {
+            $.get("https://localhost:44376/" + "api/WaIngredientes/Eliminar?id=" + id, function (data) { //conoexión con el servidor y la api
                 Limpiarfrm();
                 tIngredientes.ajax.reload();
                 $.smallBox({
@@ -125,7 +126,7 @@ function Eliminar(id) {
 
 }
 function CargaUnidadesMedida() {
-    $.get("https://localhost:44376/" + "api/WaUnidadMedida", function (data) {
+    $.get("https://localhost:44376/" + "api/WaUnidadMedida", function (data) { //conoexión con el servidor y la api
         var stringUnidadesMedida="";
         for (var i = 0; i < data.length; i++) {
             stringUnidadesMedida += "<option selected value=" + data[i].Id + ">" + data[i].UnidadMedida +"</option>";

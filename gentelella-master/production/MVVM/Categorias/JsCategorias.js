@@ -7,7 +7,7 @@ $(document).ready(function () {
     });
     $("#bGuardar").on("click", function () {
         Guardarfrm();
-    });
+    }); //boton guardar y limpiar 
 
     tCategorias = $('#tCategorias').DataTable({
         //dom: 'lrtip',
@@ -22,7 +22,7 @@ $(document).ready(function () {
 
         columns: [
 
-
+            //tabla
             {
                 data: "Id", visible: false
                 , render: function (data, type, row) {
@@ -52,7 +52,7 @@ $(document).ready(function () {
 
         ajax: {
 
-            url: "https://localhost:44376/" + "api/WaCategorias",
+            url: "https://localhost:44376/" + "api/WaCategorias",    //conoexión con el servidor y la api
             crossDomain: true,
 
             dataType: "json",
@@ -80,7 +80,7 @@ function Limpiarfrm() {
 }
 
 function Guardarfrm() {
-    $.post("https://localhost:44376/" + "api/WaCategorias", $("#frmCategoria").serialize(), function (data) {
+    $.post("https://localhost:44376/" + "api/WaCategorias", $("#frmCategoria").serialize(), function (data) {   //conoexión con el servidor y la api
         Limpiarfrm();
         tCategorias.ajax.reload();
     })
@@ -94,7 +94,7 @@ function Eliminar(id) {
         buttons: '[No][Si]'
     }, function (ButtonPressed) {
         if (ButtonPressed === "Si") {
-            $.get("https://localhost:44376/" + "api/WaCategorias/Eliminar?id=" + id, function (data) {
+            $.get("https://localhost:44376/" + "api/WaCategorias/Eliminar?id=" + id, function (data) {  //conoexión con el servidor y la api
                 Limpiarfrm();
                 tCategorias.ajax.reload();
                 $.smallBox({
